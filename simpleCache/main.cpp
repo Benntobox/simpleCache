@@ -26,11 +26,14 @@ class simpleCache {
 void simpleCache::set(int key, val value) {
     if (mp.find(key) != mp.end()) {
         if (mp.size() == cp) {
-            mp[0] = key;
-            
+            int temp = mp.find(key);
+            mp.erase(key);
+            mp.insert(pair<int, val>(key, temp));
         }
         else {
-            mp.insert();
+            val v = val(3);
+            mp[key] = v;
+            mp.insert(pair<int, val>(key, value));
         }
     }
 }
